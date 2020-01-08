@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dialogos_android.Dialogos.DialogoInformacion;
 import com.example.dialogos_android.Dialogos.DialogoRespuesta;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener , DialogoRespuesta.OnDialogoSINOListener{
     Button btnDialogInfo, btnDialogSiNo;
     TextView txtDialogInfo, txtRespuesta;
     @Override
@@ -47,5 +48,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
+    }
+
+    @Override
+    public void onDialogSelected(String s) {
+        Toast.makeText(getApplicationContext(),"La opcion selecionada es:"+s, Toast.LENGTH_SHORT).show();
     }
 }

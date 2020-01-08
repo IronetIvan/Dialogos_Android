@@ -2,6 +2,7 @@ package com.example.dialogos_android.Dialogos;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
@@ -11,11 +12,26 @@ import androidx.fragment.app.DialogFragment;
 
 import com.example.dialogos_android.R;
 
-public class DialogoRespuesta extends DialogFragment implements DialogInterface.OnClickListener {
+public class DialogoRespuesta extends DialogFragment {
+
+    OnDialogoSINOListener dialogoSINOListener;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        dialogoSINOListener = (OnDialogoSINOListener) context;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        dialogoSINOListener= null;
+    }
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+
 
         AlertDialog.Builder dialogo = new AlertDialog.Builder(getContext());
         dialogo.setTitle(R.string.tituloRespuesta);
@@ -23,28 +39,31 @@ public class DialogoRespuesta extends DialogFragment implements DialogInterface.
         dialogo.setPositiveButton("SI", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                System.out.println("Pulsado SI");
+               // System.out.println("Pulsado SI");
+                dialogoSINOListener.onDialogSelected("SI");
             }
         });
         dialogo.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                System.out.println("Pulsado NO");
+                //System.out.println("Pulsado NO");
+                dialogoSINOListener.onDialogSelected("NO");
             }
         });
 
         dialogo.setNeutralButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                System.out.println("Pulsado Cancel");
+               // System.out.println("Pulsado Cancel");
+                dialogoSINOListener.onDialogSelected("Cancelar");
             }
         });
 
         return dialogo.create();
     }
 
-    @Override
-    public void onClick(DialogInterface dialog, int which) {
 
+    public interface OnDialogoSINOListener{
+        void onDialogSelected(String s);
     }
 }
