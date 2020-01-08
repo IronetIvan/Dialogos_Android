@@ -38,6 +38,14 @@
                 android:gravity="center"
                 android:id="@+id/txtRespuesta"/>
 
+        </TableRow>
+
+        <TableRow>
+            <Button android:text="Pulsa" android:id="@+id/btnDialogoPersoRespuesta"/>
+            <TextView android:text=" Personalizado Si / No"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:id="@+id/txtRespuestaPerso"/>
 
         </TableRow>
 

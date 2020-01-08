@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.TestLooperManager;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +17,7 @@ import com.example.dialogos_android.R;
 public class DialogoRespuesta extends DialogFragment {
 
     OnDialogoSINOListener dialogoSINOListener;
+    TextView txtRespuesta;
 
     @Override
     public void onAttach(Context context) {
@@ -41,6 +44,7 @@ public class DialogoRespuesta extends DialogFragment {
             public void onClick(DialogInterface dialog, int which) {
                // System.out.println("Pulsado SI");
                 dialogoSINOListener.onDialogSelected("SI");
+
             }
         });
         dialogo.setNegativeButton("No", new DialogInterface.OnClickListener() {

@@ -4,4 +4,7 @@
     <string name="mensajeDialogo">Mensaje de un dialogo de informacion</string>
     <string name="tituloRespuesta">Titulo de dialogo de Si o No</string>
     <string name="mensajeSiNo">Estas seguro que deseas continuar?</string>
+
+    <string name="tituloRespuestaPerso">Titulo de dialogo de Si/No Personalizado</string>
+
 </resources>

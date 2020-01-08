@@ -11,10 +11,12 @@ import android.widget.Toast;
 
 import com.example.dialogos_android.Dialogos.DialogoInformacion;
 import com.example.dialogos_android.Dialogos.DialogoRespuesta;
+import com.example.dialogos_android.Dialogos.DialogoSINOPerso;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener , DialogoRespuesta.OnDialogoSINOListener{
-    Button btnDialogInfo, btnDialogSiNo;
-    TextView txtDialogInfo, txtRespuesta;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogoRespuesta.OnDialogoSINOListener {
+    Button btnDialogInfo, btnDialogSiNo, btnDialogoPersoResp;
+    TextView txtDialogInfo, txtRespuesta, txtDialogoPersoRes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void acciones() {
         btnDialogInfo.setOnClickListener(this);
         btnDialogSiNo.setOnClickListener(this);
+        btnDialogoPersoResp.setOnClickListener(this);
     }
 
     private void instancias() {
@@ -33,18 +36,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtDialogInfo = findViewById(R.id.txtInfo);
         btnDialogSiNo = findViewById(R.id.btnDialogoResouesta);
         txtRespuesta = findViewById(R.id.txtRespuesta);
+        btnDialogoPersoResp = findViewById(R.id.btnDialogoPersoRespuesta);
+        txtDialogoPersoRes = findViewById(R.id.txtRespuestaPerso);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnDialogoInfo:
                 DialogoInformacion dialogoInformacion = new DialogoInformacion();
-                dialogoInformacion.show(getSupportFragmentManager(),"ejemploInfo");
+                dialogoInformacion.show(getSupportFragmentManager(), "ejemploInfo");
                 break;
             case R.id.btnDialogoResouesta:
                 DialogoRespuesta dialogoRespuesta = new DialogoRespuesta();
                 dialogoRespuesta.show(getSupportFragmentManager(), "respuestaSINO");
+                break;
+            case R.id.btnDialogoPersoRespuesta:
+                DialogoSINOPerso dialogoSINoPerso = DialogoSINOPerso.newInstance("Ivan");
+                dialogoSINoPerso.show(getSupportFragmentManager(), "respuestaPerso");
                 break;
 
         }
@@ -52,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onDialogSelected(String s) {
-        Toast.makeText(getApplicationContext(),"La opcion selecionada es:"+s, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"La opcion selecionada es:"+s, Toast.LENGTH_SHORT).show();
+        txtRespuesta.setText(s);
     }
 }
