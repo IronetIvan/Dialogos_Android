@@ -49,6 +49,15 @@
 
         </TableRow>
 
+        <TableRow>
+            <Button android:text="Pulsa" android:id="@+id/btnDialogRespuestaItem"/>
+            <TextView android:text="Respuesta Item"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:id="@+id/txtRespuestaItem"/>
+
+        </TableRow>
+
 
     </TableLayout>
 

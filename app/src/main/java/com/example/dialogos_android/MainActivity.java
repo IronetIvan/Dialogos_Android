@@ -10,12 +10,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dialogos_android.Dialogos.DialogoInformacion;
+import com.example.dialogos_android.Dialogos.DialogoItem;
 import com.example.dialogos_android.Dialogos.DialogoRespuesta;
 import com.example.dialogos_android.Dialogos.DialogoSINOPerso;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogoRespuesta.OnDialogoSINOListener {
-    Button btnDialogInfo, btnDialogSiNo, btnDialogoPersoResp;
-    TextView txtDialogInfo, txtRespuesta, txtDialogoPersoRes;
+    Button btnDialogInfo, btnDialogSiNo, btnDialogoPersoResp, btnDialogoRespItem;
+    TextView txtDialogInfo, txtRespuesta, txtDialogoPersoRes, txtDialogoItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDialogInfo.setOnClickListener(this);
         btnDialogSiNo.setOnClickListener(this);
         btnDialogoPersoResp.setOnClickListener(this);
+        btnDialogoRespItem.setOnClickListener(this);
     }
 
     private void instancias() {
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtRespuesta = findViewById(R.id.txtRespuesta);
         btnDialogoPersoResp = findViewById(R.id.btnDialogoPersoRespuesta);
         txtDialogoPersoRes = findViewById(R.id.txtRespuestaPerso);
+        btnDialogoRespItem = findViewById(R.id.btnDialogRespuestaItem);
+        txtDialogoItem = findViewById(R.id.txtRespuestaItem);
     }
 
     @Override
@@ -54,6 +58,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnDialogoPersoRespuesta:
                 DialogoSINOPerso dialogoSINoPerso = DialogoSINOPerso.newInstance("Ivan");
                 dialogoSINoPerso.show(getSupportFragmentManager(), "respuestaPerso");
+                break;
+            case R.id.btnDialogRespuestaItem:
+                DialogoItem dialogoItem = new DialogoItem();
+                dialogoItem.show(getSupportFragmentManager(),"items");
                 break;
 
         }

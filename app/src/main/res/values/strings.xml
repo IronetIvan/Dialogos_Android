@@ -6,5 +6,7 @@
     <string name="mensajeSiNo">Estas seguro que deseas continuar?</string>
 
     <string name="tituloRespuestaPerso">Titulo de dialogo de Si/No Personalizado</string>
+    <string name="tituloDialogoItems">Titulo de dialogo de Items</string>
+
 
 </resources>
