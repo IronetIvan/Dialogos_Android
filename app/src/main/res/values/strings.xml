@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Dialogos_Android</string>
+    <string name="tituloDiaInfo">Titulo de dialogo de información</string>
+    <string name="mensajeDialogo">Mensaje de un dialogo de informacion</string>
+    <string name="tituloRespuesta">Titulo de dialogo de Si o No</string>
+    <string name="mensajeSiNo">Estas seguro que deseas continuar?</string>
+</resources>
