@@ -25,7 +25,7 @@ public class DialogoItem extends DialogFragment {
         dialogo.setItems(ArrayOpciones, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                
+
             }
         });
         return super.onCreateDialog(savedInstanceState);
