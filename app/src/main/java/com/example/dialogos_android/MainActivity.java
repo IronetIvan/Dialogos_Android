@@ -11,11 +11,12 @@ import android.widget.Toast;
 
 import com.example.dialogos_android.Dialogos.DialogoInformacion;
 import com.example.dialogos_android.Dialogos.DialogoItem;
+import com.example.dialogos_android.Dialogos.DialogoMultipleItem;
 import com.example.dialogos_android.Dialogos.DialogoRespuesta;
 import com.example.dialogos_android.Dialogos.DialogoSINOPerso;
 import com.example.dialogos_android.Dialogos.DialogoSingleItem;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogoRespuesta.OnDialogoSINOListener , DialogoSingleItem.OnDialogoItenSingleSelected{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogoRespuesta.OnDialogoSINOListener , DialogoSingleItem.OnDialogoItenSingleSelected, DialogoMultipleItem.OnDialogoItemMultipleSelected{
     Button btnDialogInfo, btnDialogSiNo, btnDialogoPersoResp, btnDialogoRespItem, btnDialogoSimple, btnDialogoMultiple;
     TextView txtDialogInfo, txtRespuesta, txtDialogoPersoRes, txtDialogoItem, txtDialogoSingle, txtDialogoMultiple;
 
@@ -77,6 +78,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.btnDialogRespuestaItemMultiple:
+                DialogoMultipleItem dialogoMultiple = new DialogoMultipleItem();
+                dialogoMultiple.show(getSupportFragmentManager(), "multiple");
                 break;
 
         }
@@ -91,5 +94,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onSingleItemSelected(String item) {
         txtDialogoSingle.setText(item);
+    }
+
+    @Override
+    public void onMultipleItemSelected(String item) {
+        txtDialogoMultiple.setText(item);
     }
 }
