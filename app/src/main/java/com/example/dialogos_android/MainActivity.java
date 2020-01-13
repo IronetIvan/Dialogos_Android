@@ -13,6 +13,7 @@ import com.example.dialogos_android.Dialogos.DialogoInformacion;
 import com.example.dialogos_android.Dialogos.DialogoItem;
 import com.example.dialogos_android.Dialogos.DialogoRespuesta;
 import com.example.dialogos_android.Dialogos.DialogoSINOPerso;
+import com.example.dialogos_android.Dialogos.DialogoSingleItem;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogoRespuesta.OnDialogoSINOListener {
     Button btnDialogInfo, btnDialogSiNo, btnDialogoPersoResp, btnDialogoRespItem, btnDialogoSimple, btnDialogoMultiple;
@@ -71,6 +72,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 dialogoItem.show(getSupportFragmentManager(),"items");
                 break;
             case R.id.btnDialogSingle:
+                DialogoSingleItem dialogosingleItem = new DialogoSingleItem();
+                dialogosingleItem.show(getSupportFragmentManager(), "single");
                 break;
 
             case R.id.btnDialogRespuestaItemMultiple:
