@@ -39,7 +39,7 @@ public class DialogoSINOPerso extends DialogFragment {
         AlertDialog.Builder dialogo = new AlertDialog.Builder(getContext());
 
         dialogo.setTitle(R.string.tituloRespuestaPerso);
-        dialogo.setMessage(nombre+ " Estas seguro que deseas continuar?");
+        dialogo.setMessage(nombre + " estas seguro que deseas continuar?");
         return dialogo.create();
     }
 }

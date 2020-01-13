@@ -58,6 +58,24 @@
 
         </TableRow>
 
+        <TableRow>
+            <Button android:text="Pulsa" android:id="@+id/btnDialogSingle"/>
+            <TextView android:text="Dialogo single item Respuesta"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:id="@+id/txtRespuestaItemSingle"/>
+
+        </TableRow>
+
+        <TableRow>
+            <Button android:text="Pulsa" android:id="@+id/btnDialogRespuestaItemMultiple"/>
+            <TextView android:text="Dialogo Multiple item Respuesta"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:id="@+id/txtRespuestaItemMultiple"/>
+
+        </TableRow>
+
 
     </TableLayout>
 

@@ -15,8 +15,8 @@ import com.example.dialogos_android.Dialogos.DialogoRespuesta;
 import com.example.dialogos_android.Dialogos.DialogoSINOPerso;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogoRespuesta.OnDialogoSINOListener {
-    Button btnDialogInfo, btnDialogSiNo, btnDialogoPersoResp, btnDialogoRespItem;
-    TextView txtDialogInfo, txtRespuesta, txtDialogoPersoRes, txtDialogoItem;
+    Button btnDialogInfo, btnDialogSiNo, btnDialogoPersoResp, btnDialogoRespItem, btnDialogoSimple, btnDialogoMultiple;
+    TextView txtDialogInfo, txtRespuesta, txtDialogoPersoRes, txtDialogoItem, txtDialogoSingle, txtDialogoMultiple;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDialogSiNo.setOnClickListener(this);
         btnDialogoPersoResp.setOnClickListener(this);
         btnDialogoRespItem.setOnClickListener(this);
+        btnDialogoSimple.setOnClickListener(this);
+        btnDialogoMultiple.setOnClickListener(this);
     }
 
     private void instancias() {
@@ -42,6 +44,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtDialogoPersoRes = findViewById(R.id.txtRespuestaPerso);
         btnDialogoRespItem = findViewById(R.id.btnDialogRespuestaItem);
         txtDialogoItem = findViewById(R.id.txtRespuestaItem);
+        btnDialogoSimple = findViewById(R.id.btnDialogSingle);
+        txtDialogoSingle = findViewById(R.id.txtRespuestaItemSingle);
+        btnDialogoMultiple = findViewById(R.id.btnDialogRespuestaItemMultiple);
+        txtDialogoMultiple = findViewById(R.id.txtRespuestaItemMultiple);
+
     }
 
     @Override
@@ -62,6 +69,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnDialogRespuestaItem:
                 DialogoItem dialogoItem = new DialogoItem();
                 dialogoItem.show(getSupportFragmentManager(),"items");
+                break;
+            case R.id.btnDialogSingle:
+                break;
+
+            case R.id.btnDialogRespuestaItemMultiple:
                 break;
 
         }
