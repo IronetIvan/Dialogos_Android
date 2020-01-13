@@ -15,7 +15,7 @@ import com.example.dialogos_android.Dialogos.DialogoRespuesta;
 import com.example.dialogos_android.Dialogos.DialogoSINOPerso;
 import com.example.dialogos_android.Dialogos.DialogoSingleItem;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogoRespuesta.OnDialogoSINOListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogoRespuesta.OnDialogoSINOListener , DialogoSingleItem.OnDialogoItenSingleSelected{
     Button btnDialogInfo, btnDialogSiNo, btnDialogoPersoResp, btnDialogoRespItem, btnDialogoSimple, btnDialogoMultiple;
     TextView txtDialogInfo, txtRespuesta, txtDialogoPersoRes, txtDialogoItem, txtDialogoSingle, txtDialogoMultiple;
 
@@ -86,5 +86,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onDialogSelected(String s) {
         //Toast.makeText(getApplicationContext(),"La opcion selecionada es:"+s, Toast.LENGTH_SHORT).show();
         txtRespuesta.setText(s);
+    }
+
+    @Override
+    public void onSingleItemSelected(String item) {
+        txtDialogoSingle.setText(item);
     }
 }
