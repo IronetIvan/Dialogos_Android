@@ -16,7 +16,10 @@ import com.example.dialogos_android.Dialogos.DialogoRespuesta;
 import com.example.dialogos_android.Dialogos.DialogoSINOPerso;
 import com.example.dialogos_android.Dialogos.DialogoSingleItem;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogoRespuesta.OnDialogoSINOListener , DialogoSingleItem.OnDialogoItenSingleSelected, DialogoMultipleItem.OnDialogoItemMultipleSelected{
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogoRespuesta.OnDialogoSINOListener ,
+        DialogoSingleItem.OnDialogoItenSingleSelected{
     Button btnDialogInfo, btnDialogSiNo, btnDialogoPersoResp, btnDialogoRespItem, btnDialogoSimple, btnDialogoMultiple;
     TextView txtDialogInfo, txtRespuesta, txtDialogoPersoRes, txtDialogoItem, txtDialogoSingle, txtDialogoMultiple;
 
@@ -96,8 +99,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtDialogoSingle.setText(item);
     }
 
-    @Override
-    public void onMultipleItemSelected(String item) {
-        txtDialogoMultiple.setText(item);
+
     }
-}
+
