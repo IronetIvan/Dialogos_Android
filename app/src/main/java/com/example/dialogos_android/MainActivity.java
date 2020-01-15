@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.dialogos_android.Dialogos.DialogoInformacion;
 import com.example.dialogos_android.Dialogos.DialogoItem;
 import com.example.dialogos_android.Dialogos.DialogoMultipleItem;
+import com.example.dialogos_android.Dialogos.DialogoPerso;
 import com.example.dialogos_android.Dialogos.DialogoRespuesta;
 import com.example.dialogos_android.Dialogos.DialogoSINOPerso;
 import com.example.dialogos_android.Dialogos.DialogoSingleItem;
@@ -20,8 +21,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogoRespuesta.OnDialogoSINOListener ,
         DialogoSingleItem.OnDialogoItenSingleSelected{
-    Button btnDialogInfo, btnDialogSiNo, btnDialogoPersoResp, btnDialogoRespItem, btnDialogoSimple, btnDialogoMultiple;
-    TextView txtDialogInfo, txtRespuesta, txtDialogoPersoRes, txtDialogoItem, txtDialogoSingle, txtDialogoMultiple;
+    Button btnDialogInfo, btnDialogSiNo, btnDialogoPersoResp, btnDialogoRespItem, btnDialogoSimple, btnDialogoMultiple, btnDialogoPersonalizado;
+    TextView txtDialogInfo, txtRespuesta, txtDialogoPersoRes, txtDialogoItem, txtDialogoSingle, txtDialogoMultiple, txtDialogoPersonalizado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDialogoRespItem.setOnClickListener(this);
         btnDialogoSimple.setOnClickListener(this);
         btnDialogoMultiple.setOnClickListener(this);
+        btnDialogoPersonalizado.setOnClickListener(this);
     }
 
     private void instancias() {
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtDialogoSingle = findViewById(R.id.txtRespuestaItemSingle);
         btnDialogoMultiple = findViewById(R.id.btnDialogRespuestaItemMultiple);
         txtDialogoMultiple = findViewById(R.id.txtRespuestaItemMultiple);
+        btnDialogoPersonalizado = findViewById(R.id.btnDialogPersonalizado);
+        txtDialogoPersonalizado = findViewById(R.id.txtDialogoPersonalizado);
 
     }
 
@@ -83,6 +87,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnDialogRespuestaItemMultiple:
                 DialogoMultipleItem dialogoMultiple = new DialogoMultipleItem();
                 dialogoMultiple.show(getSupportFragmentManager(), "multiple");
+                break;
+
+            case R.id.btnDialogPersonalizado:
+                DialogoPerso dialogoPerso = new DialogoPerso();
+                dialogoPerso.show(getSupportFragmentManager(),"personalizado");
                 break;
 
         }

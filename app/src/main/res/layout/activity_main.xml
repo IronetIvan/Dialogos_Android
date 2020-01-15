@@ -75,6 +75,14 @@
                 android:id="@+id/txtRespuestaItemMultiple"/>
 
         </TableRow>
+        <TableRow>
+            <Button android:text="Pulsa" android:id="@+id/btnDialogPersonalizado"/>
+            <TextView android:text="Dialogo Personalizado"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:id="@+id/txtDialogoPersonalizado"/>
+
+        </TableRow>
 
 
     </TableLayout>
