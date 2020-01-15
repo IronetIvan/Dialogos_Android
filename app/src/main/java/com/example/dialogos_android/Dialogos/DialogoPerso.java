@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -14,34 +15,59 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.dialogos_android.R;
+import com.example.dialogos_android.utils.Persona;
 
 
 public class DialogoPerso extends DialogFragment {
 
-    EditText txtnombre, txtpasswd;
-    Button btnloggin;
+    EditText editNombre, editPass;
+    Button botonDialogo;
     View vista;
+    OnDialogoPersoListener listener;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        vista = LayoutInflater.from(context).inflate(R.layout.dialogo_perso, null);
+        try {
+            listener = (OnDialogoPersoListener) context;
+        } catch (ClassCastException e){
+            Log.v("cast","ni de coña");
+        }
+
+
+        vista = LayoutInflater.from(context).inflate(R.layout.dialogo_perso,null);
+
     }
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-
         instancias();
-        AlertDialog.Builder dialogo_perso = new AlertDialog.Builder(getContext());
-        View vista = LayoutInflater.from(getContext()).inflate(R.layout.dialogo_perso, null);
-        dialogo_perso.setView(vista);
-        return dialogo_perso.create();
+        acciones();
+        AlertDialog.Builder dialogo = new AlertDialog.Builder(getContext());
+        dialogo.setView(vista);
+        return dialogo.create();
+    }
+
+    private void acciones() {
+        botonDialogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Persona persona = new Persona(editNombre.getText().toString(),
+                        editPass.getText().toString());
+                listener.onDilagoloSelected(persona);
+                dismiss();
+            }
+        });
     }
 
     private void instancias() {
-        txtnombre = vista.findViewById(R.id.nombre_dialogo);
-        txtpasswd = vista.findViewById(R.id.passwd_dialogo);
-        btnloggin = vista.findViewById(R.id.btn_dialogo);
+        editNombre = vista.findViewById(R.id.nombre_dialogo);
+        editPass = vista.findViewById(R.id.passwd_dialogo);
+        botonDialogo =vista.findViewById(R.id.btn_dialogo);
+    }
+
+    public interface OnDialogoPersoListener{
+        void onDilagoloSelected(Persona persona);
     }
 }

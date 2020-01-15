@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dialogos_android.Dialogos.DialogoFecha;
 import com.example.dialogos_android.Dialogos.DialogoInformacion;
 import com.example.dialogos_android.Dialogos.DialogoItem;
 import com.example.dialogos_android.Dialogos.DialogoMultipleItem;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, DialogoRespuesta.OnDialogoSINOListener ,
         DialogoSingleItem.OnDialogoItenSingleSelected{
-    Button btnDialogInfo, btnDialogSiNo, btnDialogoPersoResp, btnDialogoRespItem, btnDialogoSimple, btnDialogoMultiple, btnDialogoPersonalizado;
+    Button btnDialogInfo, btnDialogSiNo, btnDialogoPersoResp, btnDialogoRespItem, btnDialogoSimple, btnDialogoMultiple, btnDialogoPersonalizado, btnDialogoHora, btnDialogoFecha;
     TextView txtDialogInfo, txtRespuesta, txtDialogoPersoRes, txtDialogoItem, txtDialogoSingle, txtDialogoMultiple, txtDialogoPersonalizado;
 
     @Override
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDialogoSimple.setOnClickListener(this);
         btnDialogoMultiple.setOnClickListener(this);
         btnDialogoPersonalizado.setOnClickListener(this);
+        btnDialogoFecha.setOnClickListener(this);
+        btnDialogoHora.setOnClickListener(this);
     }
 
     private void instancias() {
@@ -57,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtDialogoMultiple = findViewById(R.id.txtRespuestaItemMultiple);
         btnDialogoPersonalizado = findViewById(R.id.btnDialogPersonalizado);
         txtDialogoPersonalizado = findViewById(R.id.txtDialogoPersonalizado);
+        btnDialogoFecha = findViewById(R.id.boton_dialogo_fecha);
+        btnDialogoHora = findViewById(R.id.boton_dialogo_hora);
 
     }
 
@@ -94,6 +99,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 dialogoPerso.show(getSupportFragmentManager(),"personalizado");
                 break;
 
+            case R.id.boton_dialogo_fecha:
+                DialogoFecha diaologoFecha= new DialogoFecha();
+                diaologoFecha.show(getSupportFragmentManager(), "fecha");
+
         }
     }
 
@@ -107,6 +116,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onSingleItemSelected(String item) {
         txtDialogoSingle.setText(item);
     }
+
 
 
     }
